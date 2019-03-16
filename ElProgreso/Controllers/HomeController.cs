@@ -10,6 +10,7 @@ namespace ElProgreso.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Pathname = "index";
             return View();
         }
 
