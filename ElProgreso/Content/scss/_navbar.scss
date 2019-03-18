@@ -1,51 +1,63 @@
 // Styling for the navbar
 #mainNav {
     background-color: $gray-900;
+
     .navbar-toggler {
-      font-size: 16px;
-      right: 0;
-      padding: 13px;
-      text-transform: uppercase;
-      color: white;
-      border: 0;
-      background-color: $primary;
-      @include heading-font;
+        font-size: 22px;
+        right: 0;
+        padding: 13px;
+        text-transform: uppercase;
+        color: white;
+        border: 0;
+        background-color: transparent;
+        @include heading-font;
+
+        &:focus {
+            outline: none !important;
+            box-shadow: none;
+        }
     }
+
     .navbar-brand {
-      color: $primary;
-      @include heading-font;
-      &.active,
-      &:active,
-      &:focus,
-      &:hover {
-        color: darken($primary, 10%);
-      }
+        color: $primary;
+        @include heading-font;
+
+        &.active,
+        &:active,
+        &:focus,
+        &:hover {
+            color: darken($primary, 10%);
+        }
     }
+
     .navbar-nav {
-      .nav-item {
-        .nav-link {
-          font-size: 90%;
-          font-weight: 400;
-          padding: 0.75em 0;
-          letter-spacing: 1px;
-          color: white;
-          @include heading-font;
-          &.active,
-          &:hover {
-            color: $primary;
-          }
+        .nav-item {
+            .nav-link {
+                font-size: 90%;
+                font-weight: 400;
+                padding: 0.75em 0;
+                letter-spacing: 1px;
+                color: white;
+                @include heading-font;
+
+                &.active,
+                &:hover {
+                    color: $primary;
+                }
+            }
         }
-      }
-      .btn-nav{
-        border: 1px solid #29abe2;
-        color: #29abe2!important;
-        &:hover{
-            background: #29abe2;
-            color: #fff!important;
+
+        .btn-nav {
+            border: 1px solid #29abe2;
+            color: #29abe2 !important;
+
+            &:hover {
+                background: #29abe2;
+                color: #fff !important;
+            }
         }
-      }
     }
-  }
+}
   @media(min-width:992px) {
     #mainNav {
       padding-top: 25px;

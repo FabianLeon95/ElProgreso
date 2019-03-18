@@ -45,11 +45,35 @@ body {
       @include serif-font;
     }
   }
-  @media(min-width:768px) {
-    section {
-      padding: 80px 0;
+
+header.page-header {
+    padding: 80px 0;
+    color: #fff;
+    background-image: url(img/bg-1.jpg);
+    background-position: center;
+    background-size: cover;
+
+    h2.header-heading {
+        font-size: 40px;
+        margin-top: 0;
+        margin-bottom: 15px;
+        text-transform: uppercase;
     }
-  }
+
+    h3.header-subheading {
+        font-size: 16px;
+        font-weight: 400;
+        font-style: italic;
+        text-transform: none;
+        @include serif-font;
+    }
+}
+
+@media(min-width:768px) {
+    section {
+        padding: 80px 0;
+    }
+}
   
   // Button Styles
   .btn {
