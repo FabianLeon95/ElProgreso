@@ -1,67 +1,89 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Indicadores Ecónomicos";
 }
 
-<!-- Header -->
-<header class="page-header">
-    <div class="header-content text-center">
-        <h2 class="header-heading">Indicadores Ecónomicos</h2>
-        <h3 class="header-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
-    </div>
-</header>
+@using ElProgreso.Models
+@model List<IndicadorEconomico>
 
-<!-- indicators Grid -->
-<section class="bg-light" id="indicators">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Lorem ipsum dolor sit</h2>
+    <!-- Header -->
+    <header class="page-header">
+        <div class="header-content text-center">
+            <h2 class="header-heading">Indicadores Ecónomicos</h2>
+            <h3 class="header-subheading">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+    </header>
+
+    <!-- Indicators Grid -->
+    <section class="bg-light" id="indicators">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Lorem ipsum dolor sit</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-6 indicators-item">
+                    <a class="indicators-link">
+                        <div class="indicators-hover">
+                            <div class="indicators-hover-content">
+                                <i class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="~/Content/img/finance-min.jpg" alt="">
+                    </a>
+                    <div class="indicators-caption">
+                        <h4>Tasa de Política Monetaria</h4>
+                        <p class="text-muted">Lorem Ipsum</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 indicators-item">
+                    <a class="indicators-link">
+                        <div class="indicators-hover">
+                            <div class="indicators-hover-content">
+                                <i class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="~/Content/img/finance-min.jpg" alt="">
+                    </a>
+                    <div class="indicators-caption">
+                        <h4>Tasa Básica Pasiva</h4>
+                        <p class="text-muted">Lorem Ipsum</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 indicators-item">
+                    <a class="indicators-link">
+                        <div class="indicators-hover">
+                            <div class="indicators-hover-content">
+                                <i class="fas fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid" src="~/Content/img/finance-min.jpg" alt="">
+                    </a>
+                    <div class="indicators-caption">
+                        <h4>Tipo de Cambio</h4>
+                        <p class="text-muted">Lorem Ipsum</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-4 col-sm-6 indicators-item">
-                <a class="indicators-link">
-                    <div class="indicators-hover">
-                        <div class="indicators-hover-content">
-                            <i class="fas fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="~/Content/img/bg-1.jpg" alt="">
-                </a>
-                <div class="indicators-caption">
-                    <h4>Tasa de Política Monetaria</h4>
-                    <p class="text-muted">Lorem Ipsum</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 indicators-item">
-                <a class="indicators-link">
-                    <div class="indicators-hover">
-                        <div class="indicators-hover-content">
-                            <i class="fas fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="~/Content/img/bg-1.jpg" alt="">
-                </a>
-                <div class="indicators-caption">
-                    <h4>Tasa Básica Pasiva</h4>
-                    <p class="text-muted">Lorem Ipsum</p>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 indicators-item">
-                <a class="indicators-link">
-                    <div class="indicators-hover">
-                        <div class="indicators-hover-content">
-                            <i class="fas fa-plus fa-3x"></i>
-                        </div>
-                    </div>
-                    <img class="img-fluid" src="~/Content/img/bg-1.jpg" alt="">
-                </a>
-                <div class="indicators-caption">
-                    <h4>Tipo de Cambio</h4>
-                    <p class="text-muted">Lorem Ipsum</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </section>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Codigo</th>
+                <th scope="col">Fecha</th>
+                <th scope="col">Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (IndicadorEconomico indicador in Model)
+            {
+                <tr>
+                    <td>@indicador.Codigo</td>
+                    <td>@indicador.Fecha.ToString("dd-MM-yyyy")</td>
+                    <td>@indicador.Valor</td>
+                </tr>
+            }
+            </tbody>
+    </table>
