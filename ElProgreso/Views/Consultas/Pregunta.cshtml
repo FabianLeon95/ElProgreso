@@ -1,0 +1,36 @@
+﻿@model ElProgreso.Models.Pregunta
+
+@{
+    ViewBag.Title = "Pregunta";
+}
+
+<div class="container my-5">
+    <h2>@Model.Titulo</h2>
+    <div class="mb-2">
+        <span class="pr-2 text-primary">@Model.NombreUsuario</span> @Model.Fecha.ToString("dd MMMM yyyy")
+    </div>
+
+    <div class="card mb-4" style="border-color: #29abe2; background-color: rgba(41,171,226,0.1)">
+        <div class="card-body">
+            <p class="card-text">@Model.Descripcion</p>
+        </div>
+    </div>
+    <h5 class="text-muted">@Model.Respuesta.Count respuestas</h5>
+    <hr />
+    @foreach (var item in Model.Respuesta)
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <div>
+                    <p class="card-text mb-2" href="@Url.Action("Pregunta", "Consultas", new { id = item.Id })">@item.Contenido</p>
+                    <span class="d-block text-muted text-right text-light"><span class="pr-2 text-primary">@item.NombreUsuario</span> @item.Fecha.ToString("dd MMMM yyyy")</span>
+                </div>
+            </div>
+        </div>
+    }
+    <h5 class="text-muted mt-4">Tu Respuesta</h5>
+    <hr />
+    @{
+        Html.RenderPartial("_Respuesta", new ElProgreso.Models.Respuesta(), new ViewDataDictionary { { "PreguntaId", Model.Id } });
+    }
+</div>

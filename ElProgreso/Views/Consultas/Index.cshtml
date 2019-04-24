@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ElProgreso.Models.Pregunta>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="d-flex justify-content-between mb-3">
+                <h3 class="mb-0">Preguntas</h3>
+                @Html.ActionLink("Hacer una pregunta", "NuevaPregunta", null, new { @class = "btn btn-primary py-2" })
+            </div>
+
+
+            @foreach (var item in Model)
+            {
+                <div class="card mb-3">
+                    <div class="card-body row">
+                        <div class="col-lg-2">
+                            <div class="d-inline-block rounded border border-success text-center small mb-2 p-1 p-lg-2">
+                                <span>@item.Respuesta.Count</span>
+                                <span>Respuestas</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-10">
+                            <a class="h5 card-title" href="@Url.Action("Pregunta", "Consultas", new { id = item.Id })">@item.Titulo</a>
+                            <span class="d-block mt-2 text-muted text-right text-light"><span class="pr-2 text-primary">@item.NombreUsuario</span> @item.Fecha.ToString("dd MMMM yyyy")</span>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="col-md-4">
+            <h3>Populares</h3>
+        </div>
+    </div>
+
+</div>
