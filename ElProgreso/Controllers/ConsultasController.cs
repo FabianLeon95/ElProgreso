@@ -4,17 +4,18 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ElProgreso.DAL;
 using ElProgreso.Models;
 
 namespace ElProgreso.Controllers
 {
     public class ConsultasController : Controller
     {
-        private ElProgresoEntities db = new ElProgresoEntities();
+        private ElProgresoContext db = new ElProgresoContext();
 
         public ActionResult Index()
         {
-            return View(db.Pregunta.ToList());
+            return View(db.Preguntas.ToList());
         }
 
         public ActionResult Pregunta(int? id)
@@ -23,7 +24,7 @@ namespace ElProgreso.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Pregunta pregunta = db.Pregunta.Find(id);
+            Pregunta pregunta = db.Preguntas.Find(id);
             if (pregunta == null)
             {
                 return HttpNotFound();
@@ -39,7 +40,7 @@ namespace ElProgreso.Controllers
 
             if (ModelState.IsValid)
             {
-                db.Respuesta.Add(respuesta);
+                db.Respuestas.Add(respuesta);
                 db.SaveChanges();
             }
 
@@ -60,7 +61,7 @@ namespace ElProgreso.Controllers
 
             if (ModelState.IsValid)
             {
-                db.Pregunta.Add(pregunta);
+                db.Preguntas.Add(pregunta);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

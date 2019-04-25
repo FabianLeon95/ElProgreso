@@ -137,31 +137,14 @@
     <Compile Include="Controllers\ConsultasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndicadoresController.cs" />
+    <Compile Include="DAL\ElProgresoContext.cs" />
+    <Compile Include="DAL\ElProgresoInitializer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\ElProgresoModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ElProgresoModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ElProgresoModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ElProgresoModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\ElProgresoModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ElProgresoModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\IndicadorEconomico.cs" />
-    <Compile Include="Models\Pregunta.cs">
-      <DependentUpon>ElProgresoModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Respuesta.cs">
-      <DependentUpon>ElProgresoModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\Pregunta.cs" />
+    <Compile Include="Models\Respuesta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,16 +172,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\ElProgresoModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ElProgresoModel.edmx</DependentUpon>
-      <LastGenOutput>ElProgresoModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\ElProgresoModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ElProgresoModel.edmx</DependentUpon>
-      <LastGenOutput>ElProgresoModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -233,13 +206,6 @@
     <Content Include="Content\scss\_variables.scss" />
     <None Include="Connected Services\BCCRWebService\wsIndicadoresEconomicos.wsdl" />
     <Content Include="Properties\DataSources\System.Data.DataSet.datasource" />
-    <EntityDeploy Include="Models\ElProgresoModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>ElProgresoModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\ElProgresoModel.edmx.diagram">
-      <DependentUpon>ElProgresoModel.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
