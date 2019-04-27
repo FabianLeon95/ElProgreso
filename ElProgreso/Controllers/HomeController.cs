@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ElProgreso.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,8 @@ namespace ElProgreso.Controllers
         public ActionResult Index()
         {
             ViewBag.Pathname = "index";
+            DatabaseService dv = new DatabaseService();
+            dv.UpdateDatabase();
             return View();
         }
 

@@ -137,6 +137,7 @@
     <Compile Include="Controllers\ConsultasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IndicadoresController.cs" />
+    <Compile Include="DAL\DatabaseService.cs" />
     <Compile Include="DAL\ElProgresoContext.cs" />
     <Compile Include="DAL\ElProgresoInitializer.cs" />
     <Compile Include="Global.asax.cs">
@@ -145,6 +146,7 @@
     <Compile Include="Models\IndicadorEconomico.cs" />
     <Compile Include="Models\Pregunta.cs" />
     <Compile Include="Models\Respuesta.cs" />
+    <Compile Include="Models\Update.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

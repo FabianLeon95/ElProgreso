@@ -16,6 +16,8 @@ namespace ElProgreso.DAL
 
         public DbSet<Pregunta> Preguntas { get; set; }
         public DbSet<Respuesta> Respuestas { get; set; }
+        public DbSet<IndicadorEconomico> IndicadoresEconomicos { get; set; }
+        public DbSet<Update> Updates { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
