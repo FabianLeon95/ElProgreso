@@ -71,7 +71,7 @@ namespace ElProgreso.Controllers
 
             DateTime since = DateTime.Today.AddYears(-1);
 
-            List<IndicadorEconomico> indicadores = db.IndicadoresEconomicos.Where(i => i.Codigo == "317" && i.Fecha > since).ToList();
+            List<IndicadorEconomico> indicadores = db.IndicadoresEconomicos.Where(i => i.Codigo == "3541" && i.Fecha > since).ToList();
             foreach (var dato in indicadores)
             {
                 dates.Add(dato.Fecha.ToString("dd/MM/yyyy"));
@@ -98,7 +98,7 @@ namespace ElProgreso.Controllers
 
             DateTime since = DateTime.Today.AddYears(-1);
 
-            List<IndicadorEconomico> indicadores = db.IndicadoresEconomicos.Where(i => i.Codigo == "317" && i.Fecha > since).ToList();
+            List<IndicadorEconomico> indicadores = db.IndicadoresEconomicos.Where(i => i.Codigo == "423" && i.Fecha > since).ToList();
             foreach (var dato in indicadores)
             {
                 dates.Add(dato.Fecha.ToString("dd/MM/yyyy"));
