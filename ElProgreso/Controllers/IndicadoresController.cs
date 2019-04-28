@@ -85,8 +85,56 @@ namespace ElProgreso.Controllers
         }
 
         public ActionResult TasaBasicaPasiva()
-        {
+        {               
             return View();
+        }
+        
+
+        [HttpPost]
+        public JsonResult TasaBasicaPasiva(Rango rango)
+        {
+            
+            List<object> response = new List<object>();
+            List<string> dates = new List<string>();
+            List<double> values = new List<double>();
+
+            DateTime from = rango.From;
+            DateTime to = rango.To;
+
+            if (from.ToString().Equals("1/1/0001 12:00:00 AM") || to.ToString().Equals("1/1/0001 12:00:00 AM"))
+            {
+                DateTime since = DateTime.Today.AddYears(-1);
+                List<IndicadorEconomico> indicadores = db.IndicadoresEconomicos.Where(i => i.Codigo == "423" && i.Fecha > since).ToList();
+                foreach (var dato in indicadores)
+                {
+                    dates.Add(dato.Fecha.ToString("dd/MM/yyyy"));
+                    values.Add(dato.Valor);
+                }
+
+                response.Add(dates);
+                response.Add(values);
+
+                              
+                return Json(response, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+
+                List<IndicadorEconomico> indicadores = db.IndicadoresEconomicos.Where(i => i.Codigo == "423" && i.Fecha > from && i.Fecha < to).ToList();
+                foreach (var dato in indicadores)
+                {
+                    dates.Add(dato.Fecha.ToString("dd/MM/yyyy"));
+                    values.Add(dato.Valor);
+                }
+
+                response.Add(dates);
+                response.Add(values);
+
+                
+                return Json(response, JsonRequestBehavior.AllowGet);
+            }
+
+
         }
 
         [HttpPost]
@@ -96,8 +144,9 @@ namespace ElProgreso.Controllers
             List<string> dates = new List<string>();
             List<double> values = new List<double>();
 
-            DateTime since = DateTime.Today.AddYears(-1);
 
+
+            DateTime since = DateTime.Today.AddYears(-1);
             List<IndicadorEconomico> indicadores = db.IndicadoresEconomicos.Where(i => i.Codigo == "423" && i.Fecha > since).ToList();
             foreach (var dato in indicadores)
             {
@@ -108,7 +157,11 @@ namespace ElProgreso.Controllers
             response.Add(dates);
             response.Add(values);
 
+
             return Json(response, JsonRequestBehavior.AllowGet);
+
+
+
         }
     }
 }
